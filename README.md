@@ -2,9 +2,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false　add_index|
-|password|string|null: false add_index|
-|address|string|null: false add_index|
+|name|string|null: false index: true|
 
 ### Association
 - has_many :messages
@@ -15,14 +13,14 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null: false|
+|body|text||
 |img|string||
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :users
-- belongs_to :groups
+- belongs_to :user
+- belongs_to :group
 
 ### validation
 - validates :body_or_img, presence: true
@@ -40,7 +38,7 @@ end
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null :false add_index|
+|name|string|null :false|
 
 ### Association
 - has_many :messages
@@ -51,8 +49,8 @@ end
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
