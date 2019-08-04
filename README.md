@@ -26,11 +26,15 @@
 
 ### validation
 - validates :body_or_img, presence: true
-`private`
-  `def body_or_img`
-    `body.presence or img.presence`
-  `end`
-`end`
+
+```
+private
+  def body_or_img
+    body.presence or img.presence
+  end`
+end
+```
+
 `テキストもしくは画像が挿入されていれば許可`
 
 ## groupsテーブル
