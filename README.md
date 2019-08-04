@@ -29,7 +29,7 @@
 private
   def body_or_img
     body.presence or img.presence
-  end`
+  end
 end
 ```
 
